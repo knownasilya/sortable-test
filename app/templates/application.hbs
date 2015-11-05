@@ -1,3 +1,15 @@
 <h2 id="title">Welcome to Ember</h2>
 
 {{outlet}}
+<div class="eb-body">
+  <div class="row">
+    {{#sortable-group tagName="ul" id="cards" class="list-unstyled" onChange="reorderItems" as |group|}}
+      {{#each model as |card|}}
+        {{#sortable-item tagName="li" model=card group=group handle=".drag-this" class="ebitem"}}
+          <a class="btn btn-xs drag-this" href="#"><span class="fa fa-arrows"></span><span class="sr-only">Move Card</span></a>
+          <p>{{card.name}}</p>
+        {{/sortable-item}}
+      {{/each}}
+    {{/sortable-group}}
+  </div>
+</div>
